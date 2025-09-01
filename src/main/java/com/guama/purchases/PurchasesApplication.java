@@ -1,13 +1,13 @@
-package com.guama.app;
+package com.guama.purchases;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AppApplication {
+public class PurchasesApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AppApplication.class, args);
+		SpringApplication.run(PurchasesApplication.class, args);
 	}
 
 }

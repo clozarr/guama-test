@@ -1,0 +1,36 @@
+spring:
+ application:
+  name: purchases
+
+ # JPA
+ datasource:
+  url: jdbc:h2:mem:shopping_db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+  driver-class-name: org.h2.Driver
+  username: sa
+  password: ""
+
+ jpa:
+   hibernate:
+    ddl-auto: create-drop # Generar las tablas a partir de las entidades
+   properties:
+    hibernate:
+     dialect: org.hibernate.dialect.H2Dialect
+   defer-datasource-initialization: true
+ data:
+  redis:
+   host: localhost
+   port: 6379
+ h2:
+  console:
+   enabled: true  # Habilita la consola H2 (opcional, para desarrollo)
+   path: /h2-console
+
+logging:
+ pattern:
+  console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n"
+
+server:
+ servlet:
+  context-path: /api/v1
+
+
