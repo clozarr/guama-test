@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "e628a0b7-5921-4199-8e3b-888059b03c1a",
+		"name": "Guama Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9506999"
+	},
+	"item": [
+		{
+			"name": "Crear Compra",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-User-ID",
+						"value": "CLA649",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"description\": \"Compra de artículos electrónicos\",\n  \"totalPrice\": 1500.75,\n  \"details\": [\n    {\n      \"itemName\": \"Laptop\",\n      \"unitPrice\": 1000.50,\n      \"quantity\": 1,\n      \"totalPrice\": 1000.50\n    },\n    {\n      \"itemName\": \"Mouse\",\n      \"unitPrice\": 50.25,\n      \"quantity\": 2,\n      \"totalPrice\": 100.50\n    },\n    {\n      \"itemName\": \"Teclado\",\n      \"unitPrice\": 200.00,\n      \"quantity\": 2,\n      \"totalPrice\": 400.00\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/purchases",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"purchases"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Procesar Pago",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "X-User-ID",
+						"value": "DEF456",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"amount\": 180\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/purchases/process-payments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"purchases",
+						"process-payments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Purchase",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "X-User-ID",
+						"value": "ABC123",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/purchases/:purchaseId/cancel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"purchases",
+						":purchaseId",
+						"cancel"
+					],
+					"variable": [
+						{
+							"key": "purchaseId",
+							"value": "5d34e371-c267-41e1-80de-318652e3e296"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todas las Compras",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-User-ID",
+						"value": "ABC123",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/purchases",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"purchases"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Apply Filtros",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-User-ID",
+						"value": "CLA649",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/purchases/filters?filterName=CUSTOMER_ID&value=TEST-USER",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"purchases",
+						"filters"
+					],
+					"query": [
+						{
+							"key": "filterName",
+							"value": "CUSTOMER_ID"
+						},
+						{
+							"key": "value",
+							"value": "TEST-USER"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
