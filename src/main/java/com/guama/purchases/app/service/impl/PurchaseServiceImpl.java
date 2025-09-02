@@ -152,6 +152,7 @@ public class PurchaseServiceImpl implements PurchaseService {
 
         log.info("[INI] Cancelling purchase with ID: {}", purchaseId);
         Purchase purchase = Optional.of(purchaseRepository.findById(purchaseId))
+                .filter(Optional::isPresent)
                 .map(Optional::get)
                 .filter(p -> p.getStatus() == PurchaseStatus.PENDING)
                 .orElseThrow(() -> {
