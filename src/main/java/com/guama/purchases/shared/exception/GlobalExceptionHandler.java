@@ -16,7 +16,6 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 import java.net.URI;
 import java.time.DateTimeException;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Slf4j

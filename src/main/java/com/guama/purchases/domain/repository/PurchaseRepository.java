@@ -2,7 +2,6 @@ package com.guama.purchases.domain.repository;
 
 import com.guama.purchases.domain.entity.Purchase;
 import com.guama.purchases.domain.enums.PurchaseStatus;
-
 import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
@@ -24,7 +23,19 @@ public interface PurchaseRepository extends JpaRepository<Purchase, UUID> {
      * @return a list of purchases with the specified status, ordered by creation date
      */
     List<Purchase> findAllByStatusOrderByCreatedAscCreatedAtAsc(PurchaseStatus status);
+    /* Finds all purchases with the specified status and customer ID, ordered by creation date in ascending order.
+     *
+     * @param status the status of the purchases to find
+     * @param customerId the ID of the customer whose purchases to find
+     * @return a list of purchases with the specified status and customer ID, ordered by creation date
+     */
     List<Purchase> findAllByStatusAndCustomerIdOrderByCreatedAscCreatedAtAsc(PurchaseStatus status, String customerId);
+    /**
+     * Finds all purchases for the specified customer ID, ordered by creation date in ascending order.
+     *
+     * @param customerId the ID of the customer whose purchases to find
+     * @return a list of purchases for the specified customer ID, ordered by creation date
+     */
     List<Purchase> findAllByCustomerIdOrderByCreatedAscCreatedAtAsc(String customerId);
 
 
