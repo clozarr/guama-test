@@ -66,7 +66,7 @@ public class Purchase {
     @Column(name = "updated_time", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalTime updatedAt;
 
-    @Column(name = "customerId", nullable = false)
+    @Column(name = "customer_id", nullable = false)
     private String customerId;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)

@@ -13,8 +13,10 @@ public interface PurchaseService {
     PurchaseResponseDto createPurchase(PurchaseRequestDto purchaseRequestDto, String customerId);
     List<PurchaseResponseDto> getAllPurchases(String customerId);
     List<PurchaseResponseDto> getPurchasesByFilter(PurchaseFilters filter,
-                                                   String value, String customerId);
+                                                   String value);
     void deletePurchase(UUID id);
     List<PurchaseResponseDto>  processPayment(PaymentRequestDto paymentRequestDto,
                                               String customerId);
+
+    PurchaseResponseDto cancelPurchase(UUID purchaseId);
 }

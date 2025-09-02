@@ -8,5 +8,6 @@ public enum PurchaseFilters {
 
     DESCRIPTION,
     DATE,
-    STATUS
+    STATUS,
+    CUSTOMER_ID
 }

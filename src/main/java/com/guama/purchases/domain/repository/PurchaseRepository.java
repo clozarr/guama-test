@@ -24,6 +24,9 @@ public interface PurchaseRepository extends JpaRepository<Purchase, UUID> {
      * @return a list of purchases with the specified status, ordered by creation date
      */
     List<Purchase> findAllByStatusOrderByCreatedAscCreatedAtAsc(PurchaseStatus status);
+    List<Purchase> findAllByStatusAndCustomerIdOrderByCreatedAscCreatedAtAsc(PurchaseStatus status, String customerId);
+    List<Purchase> findAllByCustomerIdOrderByCreatedAscCreatedAtAsc(String customerId);
+
 
 
     /* * Finds purchases with descriptions containing the specified string, case-insensitive.
@@ -44,11 +47,4 @@ public interface PurchaseRepository extends JpaRepository<Purchase, UUID> {
      */
     List<Purchase> findAllByCreatedOrderByCreatedAsc(LocalDate date);
 
-    /**
-     * Finds purchases with the specified status.
-     *
-     * @param status the status of the purchases to find
-     * @return a list of purchases with the specified status
-     */
-    List<Purchase> findByStatus(PurchaseStatus status);
 }

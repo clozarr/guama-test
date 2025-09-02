@@ -10,6 +10,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingRequestHeaderException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.method.annotation.HandlerMethodValidationException;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import java.net.URI;
@@ -54,6 +55,15 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ProcessPaymentException.class)
     public ResponseEntity<ErrorResponse> handleProcessPaymentException(ProcessPaymentException ex) {
         return buildErrorResponse(ex, HttpStatus.UNPROCESSABLE_ENTITY);
+    }
+
+    @ExceptionHandler(HandlerMethodValidationException.class)
+    public ResponseEntity<ErrorResponse> handleHandlerMethodValidationException(HandlerMethodValidationException ex) {
+        return buildErrorResponse(ex, HttpStatus.BAD_REQUEST);
+    }
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleResourceNotFoundException(ResourceNotFoundException ex) {
+        return buildErrorResponse(ex, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(Exception.class)
